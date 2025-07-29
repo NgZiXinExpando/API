@@ -5,21 +5,21 @@ import Link from "next/link";
 
 const programs = [
   {
-    id: "0007ac69-1e76-482f-b02c-1f0f748fa142",
+    id: "63b078e4-da34-47d4-8c33-0105a6f061df",
     name: "Drunkaroo",
     subtitle: "Alcoholic Beverages Referral Program",
     description:
       "Refer restaurants, bars, or retailers interested in purchasing alcoholic beverages in bulk. Help us connect with new partners for our premium selection of wines, spirits, and more.",
   },
   {
-    id: "0246666e-31f3-41d9-a7aa-395db919b35e",
+    id: "7c4a7156-1ffa-45c6-ad6d-86e044e5c961",
     name: "Fiezty Fizzaroo",
     subtitle: "Soft Drinks Referral Program",
     description:
       "Refer businesses looking for popular soft drinks like Coke, Fanta, and Sprite. Perfect for restaurants, franchises, and retailers seeking reliable supply of top brands.",
   },
   {
-    id: "029097e4-0704-4ddd-91dc-fee4a605ddf4",
+    id: "f4343072-2302-4df1-a788-0b55956a9900",
     name: "Sportie Soccaroo",
     subtitle: "Sports Water Referral Program",
     description:
