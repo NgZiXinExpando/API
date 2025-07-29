@@ -24,10 +24,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 min-h-screen`}>
+        <nav className="bg-white shadow-sm mb-8">
+          <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="/" className="text-2xl font-bold text-blue-700">Drinkaroo</a>
+            <div className="space-x-6">
+              <a href="/" className="text-md font-medium text-gray-700 hover:text-blue-600">Home</a>
+              <a href="/marketplace" className="text-md font-medium text-gray-700 hover:text-blue-600">Referral</a>
+            </div>
+          </div>
+        </nav>
+        <main>{children}</main>
       </body>
     </html>
   );

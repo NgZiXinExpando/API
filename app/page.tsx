@@ -2,107 +2,39 @@
 
 import React, { useState } from "react";
 
-const ReferralForm: React.FC = () => {
-  const [programId, setProgramId] = useState("");
-  const [leadName, setLeadName] = useState("");
-  const [leadDescription, setLeadDescription] = useState("");
-  const [accountIdentifier, setAccountIdentifier] = useState("");
-  const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setMessage("");
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}/referral`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": process.env.NEXT_PUBLIC_API_KEY || "",
-          },
-          body: JSON.stringify({
-            programId,
-            leadName,
-            leadDescription,
-            accountIdentifier,
-          }),
-        }
-      );
-      const data = await res.json();
-      if (res.status === 201 || res.status === 200) {
-        setMessage(data.message || "Referral submitted successfully!");
-      } else {
-        setMessage(data.message || "Error submitting referral.");
-      }
-    } catch (err) {
-      console.error(err);
-      setMessage("API failed");
-    }
-    setLoading(false);
-  };
-
-  return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded shadow">
-      <h2 className="text-2xl font-bold mb-4">Make a Referral</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block mb-1 font-medium">Program ID</label>
-          <input
-            type="text"
-            value={programId}
-            onChange={(e) => setProgramId(e.target.value)}
-            required
-            className="w-full border px-3 py-2 rounded"
-          />
+const LandingPage: React.FC = () => (
+  <div className="max-w-3xl mx-auto mt-12 p-10 bg-white rounded-xl shadow-lg">
+    <h1 className="text-5xl font-extrabold mb-6 text-blue-700 text-center">Drinkaroo: Your Bulk Beverage Partner</h1>
+    <p className="text-xl mb-8 text-center text-gray-700">
+      Are you a restaurant, franchise, or retailer looking for a reliable supplier of beverages in Hong Kong SAR? Drinkaroo delivers premium soft drinks, alcoholic beverages, and sports water at unbeatable bulk prices.
+    </p>
+    <div className="mb-8 flex flex-col md:flex-row gap-8 justify-center">
+      <div className="flex-1 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-6 border-blue-100">
+        <h2 className="text-2xl font-bold mb-2 text-blue-600">Why Choose Drinkaroo?</h2>
+        <ul className="list-disc pl-6 text-lg text-gray-800">
+          <li>Trusted by top restaurants and franchises</li>
+          <li>Wide selection: soft drinks, alcohol, sports water</li>
+          <li>Competitive bulk pricing</li>
+          <li>Fast, reliable delivery across Hong Kong</li>
+          <li>Dedicated account manager for your business</li>
+        </ul>
+      </div>
+      <div className="flex-1 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg p-6 border border-blue-100">
+        <h2 className="text-2xl font-bold mb-2 text-blue-600">Ready to Grow Your Beverage Sales?</h2>
+        <p className="mb-4 text-lg">Contact us today to discuss partnership opportunities and sign a deal with Drinkaroo.</p>
+        <a href="mailto:johnSmith@drinkaroo.com" className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 font-semibold text-lg shadow">Contact Us</a>
+        <div className="mt-4 text-gray-600 text-sm">
+          <span className="font-medium">Point of Contact:</span> John Smith<br />
+          <span className="font-medium">Email:</span> johnSmith@drinkaroo.com
         </div>
-        <div>
-          <label className="block mb-1 font-medium">Lead Name</label>
-          <input
-            type="text"
-            value={leadName}
-            onChange={(e) => setLeadName(e.target.value)}
-            required
-            className="w-full border px-3 py-2 rounded"
-          />
-        </div>
-        <div>
-          <label className="block mb-1 font-medium">Lead Description</label>
-          <textarea
-            value={leadDescription}
-            onChange={(e) => setLeadDescription(e.target.value)}
-            className="w-full border px-3 py-2 rounded"
-          />
-        </div>
-        <div>
-          <label className="block mb-1 font-medium">
-            Account Identifier (Email or Account ID)
-          </label>
-          <input
-            type="text"
-            value={accountIdentifier}
-            onChange={(e) => setAccountIdentifier(e.target.value)}
-            required
-            className="w-full border px-3 py-2 rounded"
-          />
-        </div>
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
-        >
-          {loading ? "Submitting..." : "Submit Referral"}
-        </button>
-        {message && (
-          <div className="mt-4 text-center text-sm text-green-600">
-            {message}
-          </div>
-        )}
-      </form>
+      </div>
     </div>
-  );
-};
+    <div className="bg-gray-50 rounded-lg p-6 text-center">
+      <h3 className="text-xl font-bold mb-2 text-blue-700">Referral Program for Partners</h3>
+      <p className="mb-2 text-gray-700">Already a Drinkaroo partner? Help us grow by referring new customers and earn rewards. <a href="/referral" className="text-blue-600 underline font-semibold">Make a Referral</a></p>
+      <p className="text-sm text-gray-500">(We used Expando AI™ to manage all our referrals)</p>
+    </div>
+  </div>
+);
 
-export default ReferralForm;
+export default LandingPage;
