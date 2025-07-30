@@ -85,7 +85,7 @@ const ReferralForm: React.FC = () => {
         Partners can refer new bulk buyers to Drinkaroo and help us grow. Please
         fill out the form below with accurate details.
       </p>
-      <form onSubmit={handleSubmit} className="space-y-8">
+      <form onSubmit={handleSubmit} className="space-y-8 text-gray-700">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <label className="block mb-2 font-semibold text-gray-700">
