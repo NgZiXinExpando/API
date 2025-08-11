@@ -31,7 +31,7 @@ const LandingPage: React.FC = () => (
     </div>
     <div className="bg-gray-50 rounded-lg p-6 text-center">
       <h3 className="text-xl font-bold mb-2 text-blue-700">Referral Program for Partners</h3>
-      <p className="mb-2 text-gray-700">Already a Drinkaroo partner? Help us grow by referring new customers and earn rewards. <a href="/referral" className="text-blue-600 underline font-semibold">Make a Referral</a></p>
+      <p className="mb-2 text-gray-700">Already a Drinkaroo partner? Help us grow by referring new customers and earn rewards. <a href="/marketplace" className="text-blue-600 underline font-semibold">Make a Referral</a></p>
       <p className="text-sm text-gray-500">(We used Expando AI™ to manage all our referrals)</p>
     </div>
   </div>

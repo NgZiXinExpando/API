@@ -3,20 +3,20 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-// const programs = [
-//   {
-//     id: "63b078e4-da34-47d4-8c33-0105a6f061df",
-//     name: "Drunkaroo Referral Program",
-//   },
-//   {
-//     id: "7c4a7156-1ffa-45c6-ad6d-86e044e5c961",
-//     name: "Fiezty Fizzaroo Referral Program",
-//   },
-//   {
-//     id: "f4343072-2302-4df1-a788-0b55956a9900",
-//     name: "Sportie Soccaroo Referral Program",
-//   },
-// ];
+const programs = [
+  {
+    id: "63b078e4-da34-47d4-8c33-0105a6f061df",
+    name: "Drunkaroo Referral Program",
+  },
+  {
+    id: "7c4a7156-1ffa-45c6-ad6d-86e044e5c961",
+    name: "Fiezty Fizzaroo Referral Program",
+  },
+  {
+    id: "f4343072-2302-4df1-a788-0b55956a9900",
+    name: "Sportie Soccaroo Referral Program",
+  },
+];
 
 const Page = () => {
   return (
@@ -77,7 +77,7 @@ const ReferralForm: React.FC = () => {
   // };
 
   return (
-    <div className="max-w-3xl mx-auto mt-12 p-10 bg-white rounded-xl shadow-lg">
+    <div className="max-w-4xl mx-auto mt-12 p-10 bg-white rounded-xl shadow-lg">
       <h2 className="text-4xl font-extrabold mb-6 text-blue-700 text-center">
         Make a Referral
       </h2>
@@ -88,13 +88,13 @@ const ReferralForm: React.FC = () => {
       <iframe
         src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/referral/iframe?key=${
           process.env.NEXT_PUBLIC_API_KEY
-        }${
-          searchParams.get("programId")
-            ? "&programId=" + searchParams.get("programId")
-            : ""
-        }`}
+        }&programId=${searchParams.get("programId")}&programName=${
+          programs.filter((p) => p.id === searchParams.get("programId"))[0].name
+        }
+        `}
         width="100%"
-        height="500"
+        height="600"
+        allowFullScreen
         title="Referral Form"
       ></iframe>
       {/* <form onSubmit={handleSubmit} className="space-y-8 text-gray-700">
